@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {},
+
   webpack: (config, { isServer }) => {
     // Fix for Web3 dependencies
     if (!isServer) {
@@ -20,10 +22,8 @@ const nextConfig = {
       };
     }
 
-    // Ignore specific modules that cause issues
     config.externals.push("pino-pretty", "lokijs", "encoding");
 
-    // Fix for MetaMask SDK
     config.resolve.alias = {
       ...config.resolve.alias,
       "@react-native-async-storage/async-storage": false,
