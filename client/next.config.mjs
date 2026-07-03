@@ -21,26 +21,21 @@ const nextConfig = {
     }
 
     // Ignore specific modules that cause issues
-    config.externals.push('pino-pretty', 'lokijs', 'encoding');
-    
+    config.externals.push("pino-pretty", "lokijs", "encoding");
+
     // Fix for MetaMask SDK
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@react-native-async-storage/async-storage': false,
+      "@react-native-async-storage/async-storage": false,
     };
 
     return config;
   },
-  // Disable static optimization for pages that use Web3
-  experimental: {
-    esmExternals: 'loose',
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+
   typescript: {
     ignoreBuildErrors: true,
   },
+
   images: {
     unoptimized: true,
   },
